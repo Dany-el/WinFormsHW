@@ -40,14 +40,21 @@ public partial class Form1 : Form
     private void ShowTime(object? sender, EventArgs e)
     {
         DateTime currentTime = DateTime.Now;
-        var difference = (NewYear - currentTime);
         
-        string days = difference.Days.ToString();
-        string hours = difference.Hours.ToString();
-        string minutes = difference.Minutes.ToString();
-        string seconds = difference.Seconds.ToString();
+        if (currentTime == NewYear)
+        {
+            labelTime.Text = "Нового года не будет... Дед мороз принял ислам";
+        }
+        else
+        {
+            var difference = (NewYear - currentTime);
+            string days = difference.Days.ToString();
+            string hours = difference.Hours.ToString();
+            string minutes = difference.Minutes.ToString();
+            string seconds = difference.Seconds.ToString();
 
-        labelTime.Text = $"Days: {days}\nTime: {hours}:{minutes}:{seconds}";
+            labelTime.Text = $"Days: {days}\nTime: {hours}:{minutes}:{seconds}";
+        }
     }
 
     #endregion
